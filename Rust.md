@@ -12,6 +12,33 @@ int main(int argc, char **argv) {
 
 With Rust, if your program passes the compiler’s checks, it is free of undefined behavior: dangling pointers, double-frees, and null pointer dereferences are caught at compile time, while array references are secured with a mix of compile-time and run-time checks.
 
+# TODO
+- [ ] structs
+  - [ ] Constructor
+  - [ ] Enum
+- [ ] Functions
+  - [ ] `fn parse_pair<T: FromStr>(s: &str, separator: char)`  ... For any type *T* that implements the *FromStr* *trait*...
+- [ ] Conditions
+  - [ ] Generics
+- [ ] iteration
+  - [ ] `for i in 0..limit`
+
+# IO
+## JSON
+[**Dependency**](https://github.com/serde-rs/json): serde_json = "1.0"
+
+serde_json::Value struct
+```rust
+enum Value {
+    Null,
+    Bool(bool),
+    Number(Number),
+    String(String),
+    Array(Vec<Value>),
+    Object(Map<String, Value>),
+}
+```
+
 # Gotchas
 - `!` marks a macro invocation, not a function call
 - Rust does not have exceptions: all errors are handled using either a `Result` or a panic
